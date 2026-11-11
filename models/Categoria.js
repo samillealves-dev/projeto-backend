@@ -9,7 +9,7 @@ module.exports = (sequelize, DataTypes) => {
       autoIncrement: true,
       allowNull: false
     },
-    nome: {
+    name: {
       type: DataTypes.STRING,
       allowNull: false
     },
@@ -24,8 +24,8 @@ module.exports = (sequelize, DataTypes) => {
   }, {
     tableName: 'Categoria',
     timestamps: true,
-    createdAt: 'criadas_at',
-    updatedAt: 'atualizadas_at'
+    createdAt: 'created_at',
+    updatedAt: 'updated_at'
   });
 
   // Uma categoria pode conter vários produtos

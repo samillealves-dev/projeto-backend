@@ -14,7 +14,7 @@ module.exports = {
         type: Sequelize.BOOLEAN,
         defaultValue: false
       },
-      nome: {
+      name: {
         type: Sequelize.STRING,
         allowNull: false
       },
@@ -33,7 +33,7 @@ module.exports = {
       description: {
         type: Sequelize.STRING
       },
-      preco: {
+      price: {
         type: Sequelize.FLOAT,
         allowNull: false
       },
@@ -41,12 +41,12 @@ module.exports = {
         type: Sequelize.FLOAT,
         allowNull: false
       },
-      criadas_at: {
+      created_at: {
         type: Sequelize.DATE,
         allowNull: false,
         defaultValue: Sequelize.literal('CURRENT_TIMESTAMP')
       },
-      atualizadas_at: {
+      updated_at: {
         type: Sequelize.DATE,
         allowNull: false,
         defaultValue: Sequelize.literal('CURRENT_TIMESTAMP')

@@ -1,3 +1,4 @@
+
 'use strict';
 
 module.exports = (sequelize, DataTypes) => {
@@ -8,11 +9,11 @@ module.exports = (sequelize, DataTypes) => {
       autoIncrement: true,
       allowNull: false
     },
-    nome: {
+    firstname: {
       type: DataTypes.STRING,
       allowNull: false
     },
-    sobrenome: {
+    surname: {
       type: DataTypes.STRING,
       allowNull: false
     },
@@ -21,15 +22,15 @@ module.exports = (sequelize, DataTypes) => {
       allowNull: false,
       unique: true
     },
-    senha: {
+    password: {
       type: DataTypes.STRING,
       allowNull: false
     }
   }, {
     tableName: 'Usuario',
     timestamps: true,
-    createdAt: 'criadas_at',
-    updatedAt: 'atualizadas_at'
+    createdAt: 'created_at',
+    updatedAt: 'updated_at'
   });
 
   return Usuario;

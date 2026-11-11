@@ -1,3 +1,4 @@
+
 'use strict';
 
 module.exports = (sequelize, DataTypes) => {
@@ -12,7 +13,7 @@ module.exports = (sequelize, DataTypes) => {
       type: DataTypes.BOOLEAN,
       defaultValue: false
     },
-    nome: {
+    name: {
       type: DataTypes.STRING,
       allowNull: false
     },
@@ -31,7 +32,7 @@ module.exports = (sequelize, DataTypes) => {
     description: {
       type: DataTypes.STRING
     },
-    preco: {
+    price: {
       type: DataTypes.FLOAT,
       allowNull: false
     },
@@ -42,23 +43,20 @@ module.exports = (sequelize, DataTypes) => {
   }, {
     tableName: 'Produto',
     timestamps: true,
-    createdAt: 'criadas_at',
-    updatedAt: 'atualizadas_at'
+    createdAt: 'created_at',
+    updatedAt: 'updated_at'
   });
 
   // Relacionamentos do produto
   Produto.associate = (models) => {
-    // Um produto pode ter várias imagens
     Produto.hasMany(models.ImagemProduto, {
       foreignKey: 'product_id'
     });
 
-    // Um produto pode ter várias opções
     Produto.hasMany(models.OpcaoProduto, {
       foreignKey: 'product_id'
     });
 
-    // Um produto pode pertencer a várias categorias
     Produto.belongsToMany(models.Categoria, {
       through: models.ProdutoCategoria,
       foreignKey: 'product_id',

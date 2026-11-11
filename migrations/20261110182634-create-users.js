@@ -10,11 +10,11 @@ module.exports = {
         autoIncrement: true,
         allowNull: false
       },
-      nome: {
+      firstname: {
         type: Sequelize.STRING,
         allowNull: false
       },
-      sobrenome: {
+      surname: {
         type: Sequelize.STRING,
         allowNull: false
       },
@@ -23,22 +23,20 @@ module.exports = {
         allowNull: false,
         unique: true
       },
-      senha: {
+      password: {
         type: Sequelize.STRING,
         allowNull: false
       },
-
-        criadas_at: {
+      created_at: {
         type: Sequelize.DATE,
         allowNull: false,
         defaultValue: Sequelize.literal('CURRENT_TIMESTAMP')
       },
-        atualizadas_at: {
+      updated_at: {
         type: Sequelize.DATE,
         allowNull: false,
         defaultValue: Sequelize.literal('CURRENT_TIMESTAMP')
       }
-
     });
   },
 
@@ -46,4 +44,3 @@ module.exports = {
     await queryInterface.dropTable('Usuario');
   }
 };
-
