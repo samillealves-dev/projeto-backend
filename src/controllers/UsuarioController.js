@@ -1,5 +1,6 @@
 const { Usuario } = require("../../models");
 const bcrypt = require("bcrypt");
+const jwt = require("jsonwebtoken");
 
 class UsuarioController {
 
@@ -178,6 +179,67 @@ class UsuarioController {
         });
     }
     }// fecha a chave deletar
+
+
+    // MÉTODO POST - GERAR TOKEN JWT
+static async gerarToken(req, res) {
+    try {
+        // 1. Receber o e-mail e a senha
+        const { email, password } = req.body;
+
+        // 2. Validar os dados recebidos
+        if (
+            typeof email !== "string" || !email.trim() ||
+            typeof password !== "string" || !password
+        ) {
+            return res.status(400).json({
+                message: "E-mail e senha são obrigatórios."
+            });
+        }
+
+        // 3. Procurar o usuário pelo e-mail
+        const usuario = await Usuario.findOne({
+            where: { email: email.trim() }
+        });
+
+        if (!usuario) {
+            return res.status(400).json({
+                message: "E-mail ou senha inválidos."
+            });
+        }
+
+        // 4. Comparar a senha com o hash armazenado
+        const senhaCorreta = await bcrypt.compare(
+            password,
+            usuario.password
+        );
+
+        if (!senhaCorreta) {
+            return res.status(400).json({
+                message: "E-mail ou senha inválidos."
+            });
+        }
+
+        // 5. Gerar o token JWT
+        const token = jwt.sign(
+            { id: usuario.id },
+            process.env.JWT_SECRET,
+            { expiresIn: "2h" }
+        );
+
+        // 6. Retornar o token
+        return res.status(200).json({
+            token: token
+        });
+
+    } catch (error) {
+        console.error("Erro ao gerar token:", error);
+
+        return res.status(500).json({
+            message: "Erro interno ao gerar token."
+        });
+    }
+    }
 
 } // Fecha a classe
 
