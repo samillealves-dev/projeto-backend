@@ -21,7 +21,7 @@ module.exports = (sequelize, DataTypes) => {
       defaultValue: false
     },
     path: {
-      type: DataTypes.STRING,
+      type: DataTypes.TEXT("long"),
       allowNull: false
     }
   }, {
