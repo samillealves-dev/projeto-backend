@@ -1,6 +1,6 @@
 # Projeto Back-end — API REST
 
-Projeto desenvolvido como atividade final do módulo Back-end da formação Full Stack da Digital College.
+Projeto desenvolvido como atividade final do módulo Back-end da formação Full Stack do programa Geração Tech.
 
 A aplicação é uma API REST desenvolvida com Node.js e Express, utilizando MySQL como banco de dados e Sequelize como ORM.
 
