@@ -1,24 +1,24 @@
 {
   "name": "projeto-backend",
   "version": "1.0.0",
-  "description": "Para a implementação deste projeto vamo precisar usar as seguintes tecnologias:",
-  "main": "server.js",
+  "description": "API REST para gerenciamento de usuários, categorias e produtos.",
+  "main": "src/server.js",
   "scripts": {
     "start": "nodemon src/server.js",
-    "test": "echo \"Error: no test specified\" && exit 1"
+    "test": "node --test src/routes/tests/rotas.test.js"
   },
   "repository": {
     "type": "git",
-    "url": "git+https://github.com/digitalcollegebr/projeto-backend.git"
+    "url": "git+https://github.com/samillealves-dev/projeto-backend.git"
   },
   "keywords": [],
   "author": "",
   "license": "ISC",
   "type": "commonjs",
   "bugs": {
-    "url": "https://github.com/digitalcollegebr/projeto-backend/issues"
+    "url": "https://github.com/samillealves-dev/projeto-backend/issues"
   },
-  "homepage": "https://github.com/digitalcollegebr/projeto-backend#readme",
+  "homepage": 	"https://github.com/samillealves-dev/projeto-backend#readme",
   "dependencies": {
     "bcrypt": "^6.0.0",
     "dotenv": "^18.0.10",
